@@ -26,6 +26,9 @@ function client(
 const savePost = (postData) => client(`post/${postData.id}`, {data: postData})
 const loadGreeting = (subject) => client(`greeting`, {data: {subject}})
 const reportError = (data) => client(`error`, {data})
-const submitForm = (data) => client(`form`, {data})
+const submitForm = (data) => {
+  console.log('🚀 submitForm appelé avec :', data)
+  return client('form', {data})
+}
 
 export {savePost, loadGreeting, reportError, submitForm}
